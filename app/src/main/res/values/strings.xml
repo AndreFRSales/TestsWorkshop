@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">LoginWorkshop</string>
+    <string name="title_activity_detail">DetailActivity</string>
+    <string name="main_title">Login</string>
+    <string name="main_login_hint">example@email.com</string>
+    <string name="main_password_hint">password</string>
+    <string name="main_btn_action_text">Go</string>
+</resources>
