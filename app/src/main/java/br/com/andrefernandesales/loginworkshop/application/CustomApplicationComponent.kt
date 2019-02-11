@@ -11,7 +11,6 @@ import javax.inject.Singleton
 @Component(modules = [ApiModule::class])
 @Singleton
 internal interface CustomApplicationComponent {
-//    fun inject(customApplication: CustomApplication)
     fun randomUserApi() : RandomUserApi
     fun okHttpClient() : OkHttpClient
     fun callAdapter() : CallAdapter.Factory
