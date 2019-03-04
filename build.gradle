@@ -5,6 +5,7 @@ buildscript {
     ext.dagger = '2.16'
     ext.retrofit = '2.5.0'
     ext.rxjava = '2.2.6'
+    ext.mockk = '1.8.3'
     repositories {
         google()
         jcenter()
