@@ -5,6 +5,6 @@
     <string name="main_login_hint">example@email.com</string>
     <string name="main_password_hint">password</string>
     <string name="main_btn_action_text">Go</string>
-    <string name="main_password_error_message">Password must have more than seven characters</string>
+    <string name="main_password_error_message">Username or Password Invalids. Tip: Password must have 8 characters.</string>
     <string name="main_fill_error_message">Fill the username and password fields</string>
 </resources>
