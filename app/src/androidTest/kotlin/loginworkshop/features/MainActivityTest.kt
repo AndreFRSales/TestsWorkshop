@@ -1,16 +1,14 @@
-package br.com.andrefernandesales.loginworkshop.features
+package loginworkshop.features
 
-import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions.*
-import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.intent.Intents.intended
-import androidx.test.espresso.intent.matcher.IntentMatchers.hasComponent
 import androidx.test.espresso.intent.rule.IntentsTestRule
-import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.filters.LargeTest
 import br.com.andrefernandesales.loginworkshop.R
 import br.com.andrefernandesales.loginworkshop.features.detail.DetailActivity
 import br.com.andrefernandesales.loginworkshop.features.main.MainActivity
+import br.com.concretesolutions.kappuccino.actions.ClickActions.click
+import br.com.concretesolutions.kappuccino.actions.TextActions.typeText
+import br.com.concretesolutions.kappuccino.assertions.VisibilityAssertions.displayed
+import br.com.concretesolutions.kappuccino.custom.intent.IntentMatcherInteractions.sentIntent
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -21,72 +19,104 @@ import org.junit.runners.JUnit4
 class MainActivityTest {
 
     @get:Rule
-    val activityRule = IntentsTestRule<MainActivity>(MainActivity::class.java, false, false)
+    val activityRule = IntentsTestRule<MainActivity>(MainActivity::class.java, false, true)
 
     @Test
     fun whenLoadActivity_ShouldShowTitle() {
-        activityRule.launchActivity(null)
-
-        onView(withId(R.id.main_txt_title)).check(matches(isDisplayed()))
+        displayed {
+            id(R.id.main_txt_title)
+        }
     }
 
     @Test
     fun whenLoadActivity_UsernameFieldAndPasswordShouldBeVisible() {
-        activityRule.launchActivity(null)
-
-        onView(withId(R.id.main_ed_login)).check(matches(isDisplayed()))
-        onView(withId(R.id.main_ed_password)).check(matches(isDisplayed()))
+        displayed {
+            id(R.id.main_ed_login)
+            id(R.id.main_ed_password)
+        }
     }
 
     @Test
     fun whenLoadActivity_ButtonShouldBeVisible() {
-        activityRule.launchActivity(null)
-
-        onView(withId(R.id.main_btn_action)).check(matches(isDisplayed()))
+        displayed {
+            id(R.id.main_btn_action)
+        }
     }
 
     @Test
     fun whenHasUserName_ClickedToLogin_ShouldShowCredentialsInvalid() {
-        activityRule.launchActivity(null)
+        typeText("Teste", scroll =  false, pressActionButton =  false , closeKeyboard = true) {
+            id(R.id.main_ed_login)
+        }
 
-        onView(withId(R.id.main_ed_login)).perform(typeText("Teste"), closeSoftKeyboard())
-        onView(withId(R.id.main_btn_action)).perform(click())
+        click {
+            id(R.id.main_btn_action)
+        }
 
-        onView(withId(com.google.android.material.R.id.snackbar_text))
-            .check(matches(withText(R.string.main_fill_error_message)))
+        displayed {
+            allOf {
+                id(com.google.android.material.R.id.snackbar_text)
+                text(R.string.main_fill_error_message)
+            }
+        }
     }
 
     @Test
     fun whenHasPasswordTyped_ClickedToLogin_ShouldShowCredentialsInvalid() {
-        activityRule.launchActivity(null)
+        typeText("1234567", false, false, true) {
+            id(R.id.main_ed_password)
+        }
 
-        onView(withId(R.id.main_ed_password)).perform(typeText("1234567"), closeSoftKeyboard())
-        onView(withId(R.id.main_btn_action)).perform(click())
+        click {
+            id(R.id.main_btn_action)
+        }
 
-        onView(withId(com.google.android.material.R.id.snackbar_text))
-            .check(matches(withText(R.string.main_fill_error_message)))
+        displayed {
+            allOf {
+                id(com.google.android.material.R.id.snackbar_text)
+                text(R.string.main_fill_error_message)
+            }
+        }
     }
 
     @Test
     fun whenHasUserNameAndWrongPassword_ClickedToLogin_ShouldShowPasswordInvalid() {
-        activityRule.launchActivity(null)
+        typeText("Teste") {
+            id(R.id.main_ed_login)
+        }
 
-        onView(withId(R.id.main_ed_login)).perform(typeText("Teste"), closeSoftKeyboard())
-        onView(withId(R.id.main_ed_password)).perform(typeText("1234567"), closeSoftKeyboard())
-        onView(withId(R.id.main_btn_action)).perform(click())
+        typeText("1234567", false, false, true) {
+            id(R.id.main_ed_password)
+        }
 
-        onView(withId(com.google.android.material.R.id.snackbar_text))
-            .check(matches(withText(R.string.main_password_error_message)))
+        click {
+            id(R.id.main_btn_action)
+        }
+
+        displayed {
+            allOf {
+                id(com.google.android.material.R.id.snackbar_text)
+                text(R.string.main_password_error_message)
+            }
+        }
     }
 
     @Test
     fun whenHasUserAndPasswordCorrect_ClickedToLogin_ShouldRedirectIntoDetailActivity() {
-        activityRule.launchActivity(null)
+        typeText("Teste") {
+            id(R.id.main_ed_login)
+        }
 
-        onView(withId(R.id.main_ed_login)).perform(typeText("Teste"), closeSoftKeyboard())
-        onView(withId(R.id.main_ed_password)).perform(typeText("12345678"), closeSoftKeyboard())
-        onView(withId(R.id.main_btn_action)).perform(click())
+        typeText("12345678", false, false, true) {
+            id(R.id.main_ed_password)
+        }
 
-        intended(hasComponent(DetailActivity::class.java.name))
+        click {
+            id(R.id.main_btn_action)
+        }
+
+        sentIntent {
+            className(DetailActivity::class.java.name)
+        }
     }
 }
