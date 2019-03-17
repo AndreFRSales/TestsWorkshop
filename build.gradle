@@ -9,6 +9,7 @@ buildscript     {
     ext.espresso = '3.1.1'
     ext.espressoRunner = '1.1.1'
     ext.kapuccino = '1.2.1'
+    ext.detektVersion = '1.0.0-RC14'
     repositories {
         google()
         jcenter()
@@ -23,11 +24,14 @@ buildscript     {
     }
 }
 
+plugins {
+    id 'io.gitlab.arturbosch.detekt'  version('1.0.0-RC14')
+}
+
 allprojects {
     repositories {
         google()
         jcenter()
-        
     }
 }
 

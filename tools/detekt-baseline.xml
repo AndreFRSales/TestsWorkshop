@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <Blacklist timestamp="1552850684297"></Blacklist>
+  <Whitelist timestamp="1552850684297">
+    <ID>MagicNumber:ApiModule.kt$ApiModule$30000</ID>
+    <ID>MagicNumber:PasswordValidator.kt$PasswordValidator$8</ID>
+    <ID>NewLineAtEndOfFile:ApiModule.kt$br.com.andrefernandesales.loginworkshop.api.ApiModule.kt</ID>
+    <ID>NewLineAtEndOfFile:CustomApplication.kt$br.com.andrefernandesales.loginworkshop.application.CustomApplication.kt</ID>
+    <ID>NewLineAtEndOfFile:CustomApplicationComponent.kt$br.com.andrefernandesales.loginworkshop.application.CustomApplicationComponent.kt</ID>
+    <ID>NewLineAtEndOfFile:MainActivityComponent.kt$br.com.andrefernandesales.loginworkshop.features.main.di.MainActivityComponent.kt</ID>
+    <ID>NewLineAtEndOfFile:MainActivityModule.kt$br.com.andrefernandesales.loginworkshop.features.main.di.MainActivityModule.kt</ID>
+    <ID>NewLineAtEndOfFile:MainActivityPresenter.kt$br.com.andrefernandesales.loginworkshop.features.main.ui.MainActivityPresenter.kt</ID>
+    <ID>NewLineAtEndOfFile:MainActivityPresenterImpl.kt$br.com.andrefernandesales.loginworkshop.features.main.ui.MainActivityPresenterImpl.kt</ID>
+    <ID>NewLineAtEndOfFile:MainActivityView.kt$br.com.andrefernandesales.loginworkshop.features.main.ui.MainActivityView.kt</ID>
+    <ID>NewLineAtEndOfFile:PasswordValidator.kt$br.com.andrefernandesales.loginworkshop.features.main.helpers.PasswordValidator.kt</ID>
+    <ID>NewLineAtEndOfFile:RandomUserApi.kt$br.com.andrefernandesales.loginworkshop.api.RandomUserApi.kt</ID>
+    <ID>NewLineAtEndOfFile:UserListResponse.kt$br.com.andrefernandesales.loginworkshop.features.main.model.UserListResponse.kt</ID>
+    <ID>NewLineAtEndOfFile:UserLocationResponse.kt$br.com.andrefernandesales.loginworkshop.features.main.model.UserLocationResponse.kt</ID>
+    <ID>NewLineAtEndOfFile:UserNameResponse.kt$br.com.andrefernandesales.loginworkshop.features.main.model.UserNameResponse.kt</ID>
+    <ID>NewLineAtEndOfFile:UserResponse.kt$br.com.andrefernandesales.loginworkshop.features.main.model.UserResponse.kt</ID>
+  </Whitelist>
+</SmellBaseline>
