@@ -14,6 +14,10 @@ import javax.inject.Singleton
 @Module
 internal class ApiModule {
 
+    companion object {
+        const val TIMEOUT_TIME = 30000L
+    }
+
     @Provides
     @Singleton
     fun provideApi(httpClient: OkHttpClient, rxAdapter : CallAdapter.Factory, converterFactory: Converter.Factory)
@@ -31,7 +35,7 @@ internal class ApiModule {
     @Provides
     fun providesClient() : OkHttpClient {
         return OkHttpClient.Builder()
-            .connectTimeout(30000, TimeUnit.MILLISECONDS)
+            .connectTimeout(TIMEOUT_TIME, TimeUnit.MILLISECONDS)
             .build()
     }
 
