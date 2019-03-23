@@ -1,6 +1,5 @@
 package br.com.andrefernandesales.loginworkshop.features.main.di
 
-
 import br.com.andrefernandesales.loginworkshop.features.main.helpers.PasswordValidator
 import br.com.andrefernandesales.loginworkshop.features.main.ui.MainActivityPresenter
 import br.com.andrefernandesales.loginworkshop.features.main.ui.MainActivityPresenterImpl

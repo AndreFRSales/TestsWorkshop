@@ -2,7 +2,6 @@ package br.com.andrefernandesales.loginworkshop.features.main.di
 
 import br.com.andrefernandesales.loginworkshop.application.CustomApplicationComponent
 import br.com.andrefernandesales.loginworkshop.features.main.MainActivity
-import br.com.andrefernandesales.loginworkshop.features.main.ui.MainActivityPresenter
 import dagger.Component
 
 @ActivityScope
