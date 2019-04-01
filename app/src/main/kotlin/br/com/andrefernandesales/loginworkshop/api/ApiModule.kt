@@ -3,6 +3,7 @@ package br.com.andrefernandesales.loginworkshop.api
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.CallAdapter
 import retrofit2.Converter
 import retrofit2.Retrofit
@@ -23,7 +24,7 @@ internal class ApiModule {
     fun provideApi(httpClient: OkHttpClient, rxAdapter : CallAdapter.Factory, converterFactory: Converter.Factory)
             : RandomUserApi {
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://randomuser.me/")
+                .baseUrl("https://randomuser.me/")
             .client(httpClient)
             .addCallAdapterFactory(rxAdapter)
             .addConverterFactory(converterFactory)
@@ -33,15 +34,23 @@ internal class ApiModule {
     }
 
     @Provides
-    fun providesClient() : OkHttpClient {
+    fun providesClient(httpLoggingInterceptor: HttpLoggingInterceptor) : OkHttpClient {
         return OkHttpClient.Builder()
             .connectTimeout(TIMEOUT_TIME, TimeUnit.MILLISECONDS)
+            .addInterceptor(httpLoggingInterceptor)
             .build()
     }
 
     @Provides
     fun provideCallAdapter() : CallAdapter.Factory {
         return RxJava2CallAdapterFactory.create()
+    }
+
+    @Provides
+    fun provideHttpLogInterceptor() : HttpLoggingInterceptor {
+        val interceptor = HttpLoggingInterceptor()
+        interceptor.level = HttpLoggingInterceptor.Level.BASIC
+        return interceptor
     }
 
     @Provides
