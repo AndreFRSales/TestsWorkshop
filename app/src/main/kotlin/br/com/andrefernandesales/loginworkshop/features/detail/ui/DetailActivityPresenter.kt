@@ -1,6 +1,8 @@
 package br.com.andrefernandesales.loginworkshop.features.detail.ui
 
-internal interface DetailActivityPresenter {
+import br.com.andrefernandesales.loginworkshop.core.BasePresenter
 
-    fun start()
+internal abstract class DetailActivityPresenter : BasePresenter() {
+
+    abstract fun start()
 }
