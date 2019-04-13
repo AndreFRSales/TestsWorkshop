@@ -11,7 +11,8 @@ buildscript     {
     ext.espresso = '3.1.1'
     ext.espressoRunner = '1.1.1'
     ext.kapuccino = '1.2.1'
-    ext.detektVersion = '1.0.0-RC14'
+    ext.mockWebServer = '3.12.0'
+
     repositories {
         google()
         jcenter()

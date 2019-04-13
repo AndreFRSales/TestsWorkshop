@@ -13,8 +13,11 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "br.com.andrefernandesales.loginworkshop.core.TestApplicationRunner"
+        //    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
+
     buildTypes {
         debug {
             testCoverageEnabled true
@@ -51,9 +54,11 @@ dependencies {
     //Dagger
     implementation "com.google.dagger:dagger:$dagger"
     kapt "com.google.dagger:dagger-compiler:$dagger"
+    kaptAndroidTest "com.google.dagger:dagger-compiler:$dagger"
     implementation "com.google.dagger:dagger-android:$dagger"
     implementation "com.google.dagger:dagger-android-support:$dagger"
     kapt "com.google.dagger:dagger-android-processor:$dagger"
+    kaptAndroidTest "com.google.dagger:dagger-android-processor:$dagger"
 
     //RxJava
     implementation "io.reactivex.rxjava2:rxjava:$rxjava"
@@ -74,4 +79,7 @@ dependencies {
 
     //Kapuccino
     androidTestImplementation "br.com.concretesolutions:kappuccino:$kapuccino"
+
+    //MockWebServer
+    androidTestImplementation "com.squareup.okhttp3:mockwebserver:$mockWebServer"
 }

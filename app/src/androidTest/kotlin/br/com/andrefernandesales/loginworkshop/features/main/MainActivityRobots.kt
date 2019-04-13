@@ -1,9 +1,8 @@
-package loginworkshop.features.main
+package br.com.andrefernandesales.loginworkshop.features.main
 
 import androidx.test.rule.ActivityTestRule
 import br.com.andrefernandesales.loginworkshop.R
 import br.com.andrefernandesales.loginworkshop.features.detail.DetailActivity
-import br.com.andrefernandesales.loginworkshop.features.main.MainActivity
 import br.com.concretesolutions.kappuccino.actions.ClickActions.click
 import br.com.concretesolutions.kappuccino.actions.TextActions.typeText
 import br.com.concretesolutions.kappuccino.assertions.VisibilityAssertions.displayed
