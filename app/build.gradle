@@ -13,8 +13,10 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "br.com.andrefernandesales.loginworkshop.core.TestApplicationRunner"
     }
+
+
     buildTypes {
         debug {
             testCoverageEnabled true
@@ -46,16 +48,20 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$retrofit"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit"
+    implementation "com.squareup.okhttp3:logging-interceptor:$retrofitLogging"
 
     //Dagger
     implementation "com.google.dagger:dagger:$dagger"
     kapt "com.google.dagger:dagger-compiler:$dagger"
+    kaptAndroidTest "com.google.dagger:dagger-compiler:$dagger"
     implementation "com.google.dagger:dagger-android:$dagger"
     implementation "com.google.dagger:dagger-android-support:$dagger"
     kapt "com.google.dagger:dagger-android-processor:$dagger"
+    kaptAndroidTest "com.google.dagger:dagger-android-processor:$dagger"
 
     //RxJava
     implementation "io.reactivex.rxjava2:rxjava:$rxjava"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxjavaAndroid"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
@@ -72,4 +78,7 @@ dependencies {
 
     //Kapuccino
     androidTestImplementation "br.com.concretesolutions:kappuccino:$kapuccino"
+
+    //MockWebServer
+    androidTestImplementation "com.squareup.okhttp3:mockwebserver:$mockWebServer"
 }

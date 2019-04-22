@@ -1,8 +1,9 @@
 package br.com.andrefernandesales.loginworkshop.application
 
 import android.app.Application
+import androidx.annotation.VisibleForTesting
 
-internal class CustomApplication : Application() {
+internal open class CustomApplication : Application(), ApplicationComponent {
 
     private var applicationComponent: CustomApplicationComponent? = null
 
@@ -11,11 +12,16 @@ internal class CustomApplication : Application() {
         initComponent()
     }
 
-    private fun initComponent() {
+    override fun initComponent() {
         applicationComponent = DaggerCustomApplicationComponent.builder().build()
     }
 
     fun getComponent() : CustomApplicationComponent? {
         return applicationComponent
+    }
+
+    @VisibleForTesting
+    fun setComponent(component: CustomApplicationComponent) {
+        this.applicationComponent = component
     }
 }

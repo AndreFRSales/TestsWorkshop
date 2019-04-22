@@ -14,9 +14,9 @@
     <ID>NewLineAtEndOfFile:MainActivityView.kt$br.com.andrefernandesales.loginworkshop.features.main.ui.MainActivityView.kt</ID>
     <ID>NewLineAtEndOfFile:PasswordValidator.kt$br.com.andrefernandesales.loginworkshop.features.main.helpers.PasswordValidator.kt</ID>
     <ID>NewLineAtEndOfFile:RandomUserApi.kt$br.com.andrefernandesales.loginworkshop.api.RandomUserApi.kt</ID>
-    <ID>NewLineAtEndOfFile:UserListResponse.kt$br.com.andrefernandesales.loginworkshop.features.main.model.UserListResponse.kt</ID>
-    <ID>NewLineAtEndOfFile:UserLocationResponse.kt$br.com.andrefernandesales.loginworkshop.features.main.model.UserLocationResponse.kt</ID>
-    <ID>NewLineAtEndOfFile:UserNameResponse.kt$br.com.andrefernandesales.loginworkshop.features.main.model.UserNameResponse.kt</ID>
-    <ID>NewLineAtEndOfFile:UserResponse.kt$br.com.andrefernandesales.loginworkshop.features.main.model.UserResponse.kt</ID>
+    <ID>NewLineAtEndOfFile:UserListResponse.kt$br.com.andrefernandesales.loginworkshop.features.detail.model.UserListResponse.kt</ID>
+    <ID>NewLineAtEndOfFile:UserLocationResponse.kt$br.com.andrefernandesales.loginworkshop.features.detail.model.UserLocationResponse.kt</ID>
+    <ID>NewLineAtEndOfFile:UserNameResponse.kt$br.com.andrefernandesales.loginworkshop.features.detail.model.UserNameResponse.kt</ID>
+    <ID>NewLineAtEndOfFile:UserResponse.kt$br.com.andrefernandesales.loginworkshop.features.detail.model.UserResponse.kt</ID>
   </Whitelist>
 </SmellBaseline>

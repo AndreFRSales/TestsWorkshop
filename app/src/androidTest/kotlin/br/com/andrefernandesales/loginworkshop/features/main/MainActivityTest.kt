@@ -1,9 +1,8 @@
-package loginworkshop.features.main
+package br.com.andrefernandesales.loginworkshop.features.main
 
 import androidx.test.espresso.intent.rule.IntentsTestRule
 import androidx.test.filters.LargeTest
 import br.com.andrefernandesales.loginworkshop.R
-import br.com.andrefernandesales.loginworkshop.features.main.MainActivity
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith

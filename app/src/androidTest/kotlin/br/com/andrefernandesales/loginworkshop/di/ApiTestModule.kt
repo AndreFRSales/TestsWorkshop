@@ -1,5 +1,6 @@
-package br.com.andrefernandesales.loginworkshop.api
+package br.com.andrefernandesales.loginworkshop.di
 
+import br.com.andrefernandesales.loginworkshop.api.RandomUserApi
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -13,7 +14,7 @@ import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 @Module
-internal class ApiModule {
+class ApiTestModule {
 
     companion object {
         const val TIMEOUT_TIME = 30000L
@@ -21,10 +22,14 @@ internal class ApiModule {
 
     @Provides
     @Singleton
-    fun provideApi(httpClient: OkHttpClient, rxAdapter : CallAdapter.Factory, converterFactory: Converter.Factory)
+    internal fun provideApi(
+        httpClient: OkHttpClient,
+        rxAdapter: CallAdapter.Factory,
+        converterFactory: Converter.Factory
+    )
             : RandomUserApi {
         val retrofit = Retrofit.Builder()
-                .baseUrl("https://randomuser.me/")
+            .baseUrl("http://localhost:8080/")
             .client(httpClient)
             .addCallAdapterFactory(rxAdapter)
             .addConverterFactory(converterFactory)
@@ -34,7 +39,7 @@ internal class ApiModule {
     }
 
     @Provides
-    fun providesClient(httpLoggingInterceptor: HttpLoggingInterceptor) : OkHttpClient {
+    fun providesClient(httpLoggingInterceptor: HttpLoggingInterceptor): OkHttpClient {
         return OkHttpClient.Builder()
             .connectTimeout(TIMEOUT_TIME, TimeUnit.MILLISECONDS)
             .addInterceptor(httpLoggingInterceptor)
@@ -42,20 +47,19 @@ internal class ApiModule {
     }
 
     @Provides
-    fun provideCallAdapter() : CallAdapter.Factory {
+    fun provideCallAdapter(): CallAdapter.Factory {
         return RxJava2CallAdapterFactory.create()
     }
 
     @Provides
-    fun provideHttpLogInterceptor() : HttpLoggingInterceptor {
+    fun provideHttpLogInterceptor(): HttpLoggingInterceptor {
         val interceptor = HttpLoggingInterceptor()
         interceptor.level = HttpLoggingInterceptor.Level.BASIC
         return interceptor
     }
 
     @Provides
-    fun provideConverter() : Converter.Factory {
+    fun provideConverter(): Converter.Factory {
         return GsonConverterFactory.create()
     }
-
 }
