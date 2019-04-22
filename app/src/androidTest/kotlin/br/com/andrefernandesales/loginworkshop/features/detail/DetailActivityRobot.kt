@@ -38,7 +38,11 @@ class DetailActivityAssertRobot {
 
     fun name() {
         displayed {
-            id(R.id.detail_txt_name)
+            allOf {
+                id(R.id.detail_txt_name)
+                text("sofia latvala")
+            }
+
         }
     }
 

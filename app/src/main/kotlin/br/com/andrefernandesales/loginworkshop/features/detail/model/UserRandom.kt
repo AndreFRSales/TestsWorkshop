@@ -1,3 +1,5 @@
 package br.com.andrefernandesales.loginworkshop.features.detail.model
 
-class UserRandom(val name: String, val address: String, val email: String, val birhtDate: String)
+class UserRandom(val firstName: String, val lastName: String,
+                 val address: String, val email: String,
+                 val birthDate: String)

@@ -1,5 +1,6 @@
 package br.com.andrefernandesales.loginworkshop.features.detail.ui
 
+import android.util.Log
 import br.com.andrefernandesales.loginworkshop.api.RandomUserApi
 import br.com.andrefernandesales.loginworkshop.features.detail.mapper.UserRandomMapper
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -13,10 +14,9 @@ internal class DetailActivityPresenterImpl @Inject constructor(
 
     override fun start() {
         view.setupToolbar()
-        fetchUser()
     }
 
-    private fun fetchUser() {
+    override fun fetchUser() {
         val subscribeResult = randomApiService.getRandomUser(1)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
@@ -24,7 +24,9 @@ internal class DetailActivityPresenterImpl @Inject constructor(
             .doAfterTerminate { view.hideLoading() }
             .map { UserRandomMapper.map(it) }
             .subscribe({ user -> view.showContent(user) },
-                { view.showError() })
+                { t: Throwable? ->  view.showError()
+                    Log.e("Detail", t?.message)
+                })
 
         addDisposable(subscribeResult)
     }

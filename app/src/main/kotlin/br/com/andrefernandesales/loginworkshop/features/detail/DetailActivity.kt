@@ -31,6 +31,7 @@ internal class DetailActivity : AppCompatActivity(), DetailActivityView {
         setContentView(R.layout.activity_detail)
         initDagger()
         presenter.start()
+        presenter.fetchUser()
     }
 
     override fun onDestroy() {
@@ -61,10 +62,10 @@ internal class DetailActivity : AppCompatActivity(), DetailActivityView {
 
     override fun showContent(user: UserRandom) {
         with(user) {
-            nameText.text = name
+            nameText.text = getString(R.string.detail_person_name, firstName, lastName)
             addressText.text = address
             emailText.text = email
-            birthdayText.text = birhtDate
+            birthdayText.text = birthDate
         }
     }
 
